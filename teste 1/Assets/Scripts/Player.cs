@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public int velocidade = 10;
+    public int ForcaPulo = 5 ;
+    public bool noChao ;
+
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -13,6 +16,13 @@ public class Player : MonoBehaviour
         TryGetComponent(out rb);
     }
 
+     void OnCollisionEnter(Collision col)
+     {
+       if (col.gameObject.tag == "chão")
+       {
+        noChao = true;
+       }
+     }
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +35,11 @@ public class Player : MonoBehaviour
         if (transform.position.y <= -10 ) {
           SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && noChao){
+            rb.AddForce(Vector3.up * ForcaPulo, ForceMode.Impulse);
+            noChao = false ;
         }
     }
 }
