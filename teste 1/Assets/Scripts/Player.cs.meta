@@ -3,7 +3,9 @@ guid: 10894dade7fd47247ac554d4b349174d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - clipPulo: {fileID: 8300000, guid: e1e65485c7413274e86ed7110078e8bd, type: 3}
+  - clipMoeda: {fileID: 8300000, guid: c3eaa50443354f6488c2d1b135eb6116, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

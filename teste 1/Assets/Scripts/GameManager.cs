@@ -5,12 +5,24 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
+    public static GameManager instance;
     public TextMeshProUGUI CMoedas,Vitoria,AddInfo;
     public int restantes;
     public AudioClip clipMoeda, clipVitoria;
     private AudioSource source;
-    
+    private void Awake()
+    {   
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+       else
+        {
+            Destroy(gameObject);
+        }
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +45,8 @@ public class GameManager : MonoBehaviour
 
         Vitoria.text = "Parabéns";
         AddInfo.text = "Você coletou todas as moedas.";
-
+        source.Stop();
+        source.PlayOneShot(clipVitoria);
     }
 
     }

@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody rb;
     private AudioSource source;
-    public AudioClip clipPulo, clipMoeda;
+    public AudioClip clipPulo;
 
     // Start is called before the first frame update
     void Start()
