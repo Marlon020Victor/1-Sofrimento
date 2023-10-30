@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public TextMeshProUGUI CMoedas,Vitoria,AddInfo;
     public int restantes;
-    public AudioClip clipMoeda, clipVitoria;
+    public AudioClip clipMoeda, clipVitoria, clipDerrota;
     private AudioSource source;
     private void Awake()
     {   
@@ -27,12 +27,16 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         TryGetComponent(out source);
+        Inicializacao();
+    }
 
-        restantes = FindObjectsOfType<Moeda>().Length;
+    public void Inicializacao()
+    {
+         restantes = FindObjectsOfType<Moeda>().Length;
 
-        CMoedas.text = $"Moedas restantes: {restantes}";
-        Vitoria.text = " ";
-        AddInfo.text = " ";
+                CMoedas.text = $"Moedas restantes: {restantes}";
+                Vitoria.text = " ";
+                AddInfo.text = " ";
     }
 
     public void SubtrairMoedas(int valor){
@@ -52,8 +56,8 @@ public class GameManager : MonoBehaviour
     }
     
     // Update is called once per frame
-    void Update()
+   public  void GameOver()
     {
-        
+        source.PlayOneShot(clipDerrota);
     }
 }

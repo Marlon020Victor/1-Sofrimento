@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     {
         TryGetComponent(out rb);
         TryGetComponent(out source);
+        FindObjectOfType<GameManager>().Inicializacao();
+
     }
 
      void OnCollisionEnter(Collision col)
@@ -38,6 +40,8 @@ public class Player : MonoBehaviour
 
         if (transform.position.y <= -10 ) {
           SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            FindObjectOfType<GameManager>().GameOver();
+
 
         }
 
