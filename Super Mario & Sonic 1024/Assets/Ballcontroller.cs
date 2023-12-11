@@ -23,6 +23,11 @@ public class Ballcontroller : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        if (collision.gameObject.CompareTag("GameOver"))
+        {
+            GameManager.instance.ReiniciarCena();
+        }
+
         direcao = Vector2.Reflect(direcao, collision.contacts[0].normal);
     }
 
