@@ -28,6 +28,11 @@ public class Ballcontroller : MonoBehaviour
             GameManager.instance.ReiniciarCena();
         }
 
+        if (collision.gameObject.CompareTag("Reforcado"))
+        {
+            collision.gameObject.GetComponent<BlocoReforcado>().TomouHit();
+        }
+
         direcao = Vector2.Reflect(direcao, collision.contacts[0].normal);
     }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bloco
   - GameOver
+  - Reforcado
   layers:
   - Default
   - TransparentFX
