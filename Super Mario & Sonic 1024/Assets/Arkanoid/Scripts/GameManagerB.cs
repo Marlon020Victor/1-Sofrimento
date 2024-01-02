@@ -30,12 +30,41 @@ public class GameManagerB : MonoBehaviour
     
     void Start()
     {
-        
+        SpawnarNovoJogador();
+        AtualizarContador();
     }
 
-    // Update is called once per frame
+    public void AtualizarContador()
+    {
+        contador.text = $"Vidas : {vidas}";
+    }
+
+    public void SpawnarNovoJogador()
+    {
+        GameObject playerObj = Instantiate(playerPrefab, playerSpawnPoint.position, Quaternion.identity);
+        GameObject ballObj = Instantiate(ballPrefab, ballSpawnPoint.position, Quaternion.identity);
+
+        playerAtual = playerObj.GetComponent<PlayerB>();
+        ballAtual = ballObj.GetComponent<BallB>();
+
+        segurando = true;
+        offset = playerAtual.transform.position - ballAtual.transform.position;
+
+
+    }
+
     void Update()
     {
-        
+        if (segurando)
+        {
+            ballAtual.transform.position = playerAtual.transform.position - offset;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                ballAtual.DispararBolinha(playerAtual.inputX);
+                segurando = false;
+
+            }
+        }
     }
 }
