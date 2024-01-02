@@ -67,7 +67,18 @@ public class GameManagerB : MonoBehaviour
 
     public void SubtrairVida()
     {
-
+        vidas--;
+        AtualizarContador();
+        Destroy(playerAtual.gameObject);
+        Destroy(ballAtual.gameObject);
+        if (vidas <= 0)
+        {
+            Derrota();
+        }
+        else
+        {
+            Invoke(nameof(SpawnarNovoJogador), 2);
+        }
     }
 
     public void Vitoria()
@@ -79,7 +90,8 @@ public class GameManagerB : MonoBehaviour
 
     public void Derrota()
     {
-
+        MsgVitoria.text = "Perdeu kk";
+        Invoke(nameof(ReiniciarCena), 2);
     }
 
     public void ReiniciarCena()
