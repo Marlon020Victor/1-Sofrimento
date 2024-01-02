@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManagerB : MonoBehaviour
@@ -8,7 +9,25 @@ public class GameManagerB : MonoBehaviour
     public int vidas = 2;
     public int tijolosRestantes;
 
-    // Start is called before the first frame update
+    public GameObject playerPrefab;
+    public GameObject ballPrefab;
+    public Transform playerSpawnPoint;
+    public Transform ballSpawnPoint;
+
+    public PlayerB playerAtual;
+    public BallB ballAtual;
+
+    public TextMeshProUGUI contador;
+    public TextMeshProUGUI MsgVitoria;
+
+    public bool segurando;
+    private Vector3 offset;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    
     void Start()
     {
         

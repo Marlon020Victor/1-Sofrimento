@@ -60,8 +60,8 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Ballcontroller.cs" />
-    <Compile Include="Assets\Arkanoid\Scripts\PlayerB.cs" />
     <Compile Include="Assets\Arkanoid\Scripts\BallB.cs" />
+    <Compile Include="Assets\Arkanoid\Scripts\PlayerB.cs" />
     <Compile Include="Assets\Arkanoid\Scripts\GameManagerB.cs" />
   </ItemGroup>
   <ItemGroup>
