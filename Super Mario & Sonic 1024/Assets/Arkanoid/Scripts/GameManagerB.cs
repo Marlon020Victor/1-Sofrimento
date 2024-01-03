@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerB : MonoBehaviour
 {
+
     public static GameManagerB instance;
     public int vidas = 2;
     public int tijolosRestantes;
-
+    
     public GameObject playerPrefab;
     public GameObject ballPrefab;
     public Transform playerSpawnPoint;
